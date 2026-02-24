@@ -50,9 +50,10 @@ def convert(abr_path, output_dir=None):
 
 if __name__ == "__main__":
     if len(sys.argv) < 2:
-        print("Uso: python main.py <archivo.abr>")
-        sys.exit(1)
-
-    success = convert(sys.argv[1])
-    if not success:
-        sys.exit(1)
+        # Sin argumentos: abrir interfaz grafica
+        from src.gui.main_window import run_gui
+        run_gui()
+    else:
+        success = convert(sys.argv[1])
+        if not success:
+            sys.exit(1)
